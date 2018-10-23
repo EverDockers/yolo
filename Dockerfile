@@ -1,4 +1,4 @@
-FROM baikangwang/tf_opencv_contrib:gpu_python3
+FROM baikangwang/tf_opencv_contrib:gpu_3.5
 MAINTAINER Baker Wang <baikangwang@hotmail.com>
 
 # RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
