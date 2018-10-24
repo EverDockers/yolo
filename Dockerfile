@@ -32,6 +32,6 @@ RUN cd /projects && \
     sed -ie "s/GPU=0/GPU=1/g" Makefile && \
     sed -ie "s/CUDNN=0/CUDNN=1/g" Makefile && \
     sed -ie "s/OPENCV=0/OPENCV=1/g" Makefile && \
-    make && \
+    make
 
 CMD ["/bin/bash"]
