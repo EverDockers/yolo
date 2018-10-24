@@ -25,7 +25,7 @@ RUN ldconfig
 # Yolo V3 & Yolo V2
 #
 # Get source from github
-RUN cd /projects && \
+RUN cd / && \
     git clone https://github.com/pjreddie/darknet.git && \
     # Compile
     cd darknet && \
