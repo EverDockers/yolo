@@ -34,5 +34,6 @@ RUN cd /projects && \
     sed -ie "s/OPENCV=0/OPENCV=1/g" Makefile && \
     sed -ie "s/OPENMP=0/OPENMP=1/g" Makefile && \
     make
+WORKDIR /projects/darknet
 
 CMD ["/bin/bash"]
