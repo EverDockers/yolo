@@ -22,7 +22,7 @@ RUN LD_LIBRARY_PATH=/usr/local/lib:/usr/lib; export LD_LIBRARY_PATH
 RUN ldconfig
 
 # prepare
-RUN sudo apt update && apt install -y \
+RUN apt update && apt install -y \
 	cython
 #
 # Yolo - Darkflow
