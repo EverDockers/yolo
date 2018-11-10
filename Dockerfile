@@ -2,7 +2,7 @@ FROM baikangwang/tf_opencv_contrib:gpu_3.5
 MAINTAINER Baker Wang <baikangwang@hotmail.com>
 
 ### docker respository ###
-# reference: https://hub.docker.com/r/takuyatakeuchi/yolo-darknet/
+# reference: https://hub.docker.com/r/davvdg/darkflow-docker
 #
 # run
 # $ sudo nvidia-docker run --rm -i -t <new_image_name> /bin/bash
@@ -21,18 +21,17 @@ MAINTAINER Baker Wang <baikangwang@hotmail.com>
 RUN LD_LIBRARY_PATH=/usr/local/lib:/usr/lib; export LD_LIBRARY_PATH
 RUN ldconfig
 
+# prepare
+RUN sudo apt update && apt install -y \
+	cython
 #
-# Yolo V3 & Yolo V2
+# Yolo - Darkflow
 #
-# Get source from github
-RUN cd / && \
-    git clone https://github.com/pjreddie/darknet.git && \
-    # Compile
-    cd darknet && \
-    sed -ie "s/GPU=0/GPU=1/g" Makefile && \
-    sed -ie "s/CUDNN=0/CUDNN=1/g" Makefile && \
-    sed -ie "s/OPENCV=0/OPENCV=1/g" Makefile && \
-    sed -ie "s/OPENMP=0/OPENMP=1/g" Makefile && \
-    make
+RUN cd "/" && \
+	git clone https://github.com/thtrieu/darkflow.git &&\
+	cd darkflow && \
+	pip install . && \
+	cd "/" && \
+	rm -rf darkflow
 
 CMD ["/bin/bash"]
