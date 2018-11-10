@@ -23,7 +23,8 @@ RUN ldconfig
 
 # prepare
 RUN apt update && apt install -y \
-	cython
+	cython && \
+    pip install Cython --install-option="--no-cython-compile"
 #
 # Yolo - Darkflow
 #
